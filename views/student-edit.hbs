@@ -1,0 +1,19 @@
+<h1>Edit student</h1>
+<form action="/students/{{student.id}}/edit" method="POST">
+  <label for="student-name">Name:</label>
+  <input type="text" name="name" value="{{student.name}}">
+
+  <label for="student-age">Age:</label>
+  <input type="number" name="age" value="{{student.age}}">
+
+  <label for="student-description">Description:</label>
+  <input type="text" name="description" value="{{student.description}}">
+
+  <label for="student-city">City:</label>
+  <input type="text" name="city" value="{{student.city}}">
+  
+  <button type="submit">Editar</button>
+</form>
+{{#if error}}
+  <p>Ha ocurrido un error</p>
+{{/if}}

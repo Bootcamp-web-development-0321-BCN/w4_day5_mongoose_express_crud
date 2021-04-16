@@ -1,0 +1,19 @@
+<h1>Create student</h1>
+<form action="/students/create" method="POST">
+  <label for="student-name">Name:</label>
+  <input type="text" name="name">
+
+  <label for="student-age">Age:</label>
+  <input type="number" name="age">
+
+  <label for="student-description">Description:</label>
+  <input type="text" name="description">
+
+  <label for="student-city">City:</label>
+  <input type="text" name="city">
+  
+  <button type="submit">Crear</button>
+</form>
+{{#if error}}
+  <p>Ha ocurrido un error</p>
+{{/if}}
