@@ -5,7 +5,8 @@ const studentSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, min: 0, max: 120, required: true },
   description: { type: String, maxlength: 1000, required: true },
-  city: { type: String, required: true }
+  city: { type: String, required: true },
+  course_id: { type: Schema.Types.ObjectId, ref: 'Course' }
 }); 
 
 const Student = mongoose.model('Student', studentSchema);
