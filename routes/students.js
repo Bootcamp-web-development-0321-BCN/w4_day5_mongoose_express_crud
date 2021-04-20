@@ -13,6 +13,15 @@ router.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+router.get('/students-json', (req, res) => {
+  // this CONTROLLER is...
+  Student.find({}) // ... asking for data from the Student MODEL and ...
+    .then(students => {
+      res.json(students); // ... sending a VIEW to the client
+    })
+    .catch(error => console.error(error))
+})
+
 router.get('/create', (req, res) => {
   res.render('student-create');
 })
@@ -84,6 +93,15 @@ router.post('/create', (req, res) => {
     .catch(error => {
       res.render('students-create', { error })
     })
+})
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  Student.findOneAndDelete({ _id: id })
+    .then(() => {
+      res.json({ message: 'OK' });
+    })
+    .catch(error => console.error(error))
 })
 
 module.exports = router;
